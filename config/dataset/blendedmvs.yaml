@@ -1,0 +1,43 @@
+defaults:
+  - view_sampler: bounded
+
+name: blendedmvs
+root_dir: /home/youngju/ssd/datasets/BlendedMVS/test
+scan_id: [5a3cb4e4270f0e3f14d12f43,5a6400933d809f1d8200af15,5c20ca3a0843bc542d94e3e2,599aa591d5b41f366fed0d58,5947b62af1b45630bd0c2a02,59817e4a1bd4b175e7038d19] #! change this
+
+
+make_baseline_1: true
+augment: true
+
+n_views: 3
+num_context_views: 3
+
+test_context_views: [23, 24, 33]
+test_target_views: [35, 25]
+test_ref_view: []
+use_test_ref_views_as_src: true
+single_view: true
+view_selection_type: random # best or random
+
+use_mask: true
+
+image_shape: [224, 224]
+original_image_shape: [576,768]
+background_color: [0.0, 0.0, 0.0]
+cameras_are_circular: false
+
+generic_near_far: false
+
+baseline_epsilon: 1e-3
+max_fov: 100.0
+
+skip_bad_shape: true
+near: -1.
+far: -1.
+baseline_scale_bounds: true
+shuffle_val: true
+test_len: -1
+test_chunk_interval: 1
+
+padding_size: 0
+shift_rays_half_pixel: forward

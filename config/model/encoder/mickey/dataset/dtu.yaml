@@ -1,0 +1,16 @@
+DATASET:
+  DATA_SOURCE: 'DTU'
+  DATA_ROOT: [/home/youngju/ssd/datasets/DTU, /home/youngju/ssd/datasets/DTU_TEST]
+  PAIR_FILEPATH: data/dtu/dtu_pairs.txt
+  SPLIT_FILEPATH: [data/dtu/lists]
+  VIEW_SELECTION_TYPE: random
+  SCENES: None  # should be a list [] or None. If none, use all scenes.
+  AUGMENTATION_TYPE: None
+  IMAGE_SHAPE: [224, 224]
+  ORIGINAL_IMAGE_SHAPE: [128, 160]
+  TEST_REF_VIEWS: [23, 24]
+  MIN_OVERLAP_SCORE: 0.2  # [train only] discard data with overlap_score < min_overlap_score
+  MAX_OVERLAP_SCORE: 0.7  # [train only] discard data with overlap_score < min_overlap_score
+  SEED: 66
+
+

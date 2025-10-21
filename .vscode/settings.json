@@ -1,0 +1,8 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#501349",
+        "titleBar.activeBackground": "#711B66",
+        "titleBar.activeForeground": "#FDF8FD"
+    },
+    "cmake.sourceDirectory": "/home/youngju/ssd/ufosplat/src/submodules/diff-gaussian-rasterization"
+}

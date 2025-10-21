@@ -1,0 +1,41 @@
+defaults:
+  - view_sampler: bounded
+
+name: dtu
+roots: [/home/youngju/ssd/datasets/DTU, /home/youngju/ssd/datasets/DTU]
+pair_filepath: src/dataset/dtu/dtu_pairs.txt
+split_filepath: [src/dataset/dtu/lists]
+make_baseline_1: true
+augment: true
+
+n_views: 10
+num_context_views: 3
+num_all_imgs: 49
+test_ref_views: [23, 24, 22, 15, 34, 14, 32, 16, 35, 25]
+mesh_ref_views: [1, 16]
+test_context_views: [23, 24, 33]
+test_target_views: [35, 25]
+use_test_ref_views_as_src: true
+single_view: true
+view_selection_type: random # best or random
+
+image_shape: [224, 224]
+original_image_shape: [768, 576]
+background_color: [0.0, 0.0, 0.0]
+cameras_are_circular: false
+
+generic_near_far: false
+
+baseline_epsilon: 1e-3
+max_fov: 100.0
+
+skip_bad_shape: true
+near: -1.
+far: -1.
+baseline_scale_bounds: true
+shuffle_val: true
+test_len: -1
+test_chunk_interval: 1
+
+padding_size: 0
+shift_rays_half_pixel: forward

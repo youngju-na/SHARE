@@ -1,0 +1,97 @@
+name: costvolume
+
+opacity_mapping:
+  initial: 0.0
+  final: 0.0
+  warm_up: 1
+
+num_depth_candidates: 32
+num_surfaces: 1
+
+gaussians_per_pixel: 1
+gaussian_anchor_feats: 96 #TODO: gaussian anchor feats의 dimension
+
+
+lifting:
+  lifting_switch: false
+  lifting_from: latent
+  latent_res: 16
+  radius: 3.0
+  feature_reduction: mean # used only in triplane
+
+gaussian_adapter:
+  gaussian_scale_min: 0.5
+  gaussian_scale_max: 15.0
+  sh_degree: 3
+  learn_sh_residual_from_canoncal_rgb: true
+  gaussian_2d_scale: true
+
+d_feature: 128
+
+visualizer:
+  num_samples: 8
+  min_resolution: 256
+  export_ply: false
+
+
+# params for multi-view depth predictor
+# unimatch_weights_path: "/mnt/nas3/youngju/ufosplat/ckpts/gmdepth-scale1-resumeflowthings-scannet-5d9d7964.pth"
+unimatch_weights_path: "/home/youngju/ssd/ufosplat/checkpoints/gmdepth-scale1-resumeflowthings-scannet-5d9d7964.pth"
+use_mast3r: false 
+mast3r_predict_pointmap: false
+
+# master_weights_path: "/mnt/nas3/youngju/ufosplat/ckpts/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth"
+master_weights_path: "/home/youngju/ssd/ufosplat/checkpoints/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth"
+
+multiview_trans_attn_split: 2
+costvolume_unet_feat_dim: 128
+costvolume_unet_channel_mult: [1,1,1]
+costvolume_unet_attn_res: []
+depth_unet_feat_dim: 64
+depth_unet_attn_res: []
+depth_unet_channel_mult: [1, 1, 1]
+downscale_factor: 4
+shim_patch_size: 4
+
+# below are ablation settings, keep them as false for default model
+wo_depth_refine: false         # Table 3: base
+wo_cost_volume: true          #* cost volume
+wo_backbone_cross_attn: false  # Table 3: w/o cross-view attention
+wo_cost_volume_refine: false   # Table 3: w/o U-Net #! 바꿨음
+use_epipolar_trans: false      # Table B: w/ Epipolar Transformer
+
+predict_only_canonical: true #* predict only from canonical view
+estimation_space: depthmap #!depth or pointmap
+backbone_feat_type: trans
+backbone_fix: False
+
+backbone: mvsplat
+
+global_alignment: false
+duster_upscale: false
+use_pointmap_from_dust3r: false
+predict_offset: true
+predict_anchor_gaussian: false
+num_offset_gaussian: 4
+rendering_units: ["all","anchor","offset"]
+
+pred_campose: true    
+gt_campose: false       # w/o camera pose estimation
+use_monoN_loss: false
+feature_fusion_strategy: both
+feature_padding: false
+padding_size: 0
+
+pose_estimation_warmup: 0
+ray: # camera pose estimation
+  in_channels: 128 #* 128 + 4 (intrinsic)
+  ray_dim: 6
+  width: 64
+  depth: 4 #! increase in the future
+  hidden_size: 256
+  max_num_images: 8
+  P: 1
+  num_heads: 8
+  mlp_ratio: 2.0
+  pose_embedding: true
+  view_embedding: true

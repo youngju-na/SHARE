@@ -1,0 +1,48 @@
+# @package _global_
+
+defaults:
+  - override /dataset: blendedmvs
+  - override /model/encoder: costvolume_dtu
+
+wandb:
+  name: blendedmvs
+  tags: [blendedmvs, 224x224]
+
+data_loader:
+  train:
+    batch_size: 1
+
+trainer:
+  max_steps: 300_001
+
+# ----- Additional params for default best model customization
+model:
+  encoder:
+    num_depth_candidates: 128
+    costvolume_unet_feat_dim: 128
+    costvolume_unet_channel_mult: [1,1,1]
+    costvolume_unet_attn_res: [4]
+    gaussians_per_pixel: 1
+    depth_unet_feat_dim: 128
+    depth_unet_attn_res: [16]
+    depth_unet_channel_mult: [1,1,1]
+
+# lpips loss
+loss:
+  lpips:
+    apply_after_step: 0
+    weight: 0.05
+
+dataset: 
+  image_shape: [224, 224]
+  original_image_shape: [576, 768] #* H,W
+  roots: [/home/youngju/ssd/datasets/DTU]
+  near: 1.
+  far: 1000.
+  baseline_scale_bounds: true
+  make_baseline_1: true
+  generic_near_far: false
+
+test:
+  eval_time_skip_steps: 5
+  compute_scores: true
