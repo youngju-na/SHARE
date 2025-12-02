@@ -28,7 +28,7 @@
 </p>
 
 ## 📰 News
-- [ ] To Do: Release SHAREv2 (SHARE++)
+- [ ] To Do: Release SHAREv2 (SHARE++), which adopts 3D foundation models in our pipeline (exp date: Jan 2025).
 - [x] (10/21) Release checkpoint links
 - [x] (10/21) Initial code release
 - [x] (10/15) We received the ICIP 2025 Best Student Paper Award!
