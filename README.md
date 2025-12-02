@@ -55,7 +55,7 @@ Please refer to the respective repositories for detailed dataset preparation ins
 
 ## 📥 Checkpoints
 
-Pretrained SHARE model checkpoints are available for download link: [SHARE checkpoints (google drive)](https://drive.google.com/drive/folders/1TNtu5JWyua7m9uJLp8UR8k4A3WUDeCmH?usp=sharing)
+Pretrained SHARE model checkpoints are available via [google form](https://github.com/youngju-na/SHARE/)
 
 The folder contains checkpoints for datasets trained on **DTU** and **RealEstate10K**, respectively.  
 
