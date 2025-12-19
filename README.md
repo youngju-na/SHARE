@@ -46,12 +46,14 @@ pip install -r requirements.txt
 
 ## 📦 Datasets
 
-SHARE is trained and evaluated on **DTU**, **BlendedMVS**, **RealEstate10K**, and **ACID** datasets.
+SHARE is trained and evaluated on **DTU and RealEstate10K** datasets.
 
-- **DTU** and **BlendedMVS** datasets follow the preprocessing and download procedure of [VolRecon](https://github.com/IVRL/VolRecon).  
-- **RealEstate10K** and **ACID** datasets follow the setup of [MVSplat](https://github.com/donydchen/mvsplat).
+- **DTU** dataset follows the preprocessing and download procedure of [VolRecon](https://github.com/IVRL/VolRecon).  
+- **RealEstate10K** dataset follows the setup of [MVSplat](https://github.com/donydchen/mvsplat).
 
 Please refer to the respective repositories for detailed dataset preparation instructions.
+
+- To Do: add DL3DV dataloader for training and evaluation.
 
 ## 📥 Checkpoints
 
